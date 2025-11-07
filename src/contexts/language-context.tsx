@@ -1,0 +1,133 @@
+'use client';
+
+import { createContext, useContext, useState, useEffect } from 'react';
+
+type Language = 'en' | 'mn';
+
+interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
+}
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+const translations = {
+  en: {
+    'navigation.home': 'Home',
+    'navigation.instruments': 'Instruments',
+    'navigation.concerts': 'Concerts',
+    'navigation.about': 'About',
+    'home.hero.watchOnYoutube': 'Watch on YouTube',
+    'home.hero.learnMore': 'Learn More',
+    'home.concerts.title': 'Upcoming Live Concerts',
+    'home.concerts.getTickets': 'Get Tickets',
+    'home.concerts.noUpcoming': 'No upcoming concerts at the moment',
+    'home.about.title': 'About Us',
+    'home.about.description': 'The Mongolian National Orchestra is dedicated to preserving and promoting the rich musical traditions of Mongolia. Our ensemble brings together the finest musicians to perform both traditional Mongolian music and contemporary compositions that honor our cultural heritage.',
+    'home.about.readMore': 'Read More',
+    'instruments.title': 'Traditional Mongolian Instruments',
+    'instruments.description': 'Discover the unique sounds and rich history of Mongolia\'s traditional musical instruments',
+    'instruments.overview': 'Overview',
+    'instruments.uniqueFeatures': 'Unique Features',
+    'instruments.originHistory': 'Origin & History',
+    'instruments.relatedInstruments': 'Related Instruments',
+    'common.languageSwitch': 'Language',
+    'common.darkMode': 'Dark Mode',
+    'common.lightMode': 'Light Mode',
+    'footer.contact': 'Contact',
+    'footer.socialMedia': 'Social Media',
+    'footer.copyright': '© 2025 Grand National Orchestra Of Mongolia. All rights reserved.',
+    'instruments.learnMore': 'Learn More',
+    'instruments.backToInstruments': 'Back to Instruments',
+    'instruments.category.string': 'String',
+    'instruments.category.wind': 'Wind',
+    'instruments.category.percussion': 'Percussion',
+    'home.hero.nowPlaying': '',
+    'home.hero.rating': 'rating',
+    'home.hero.close': 'Close',
+    'footer.quickLinks': 'Quick Links',
+    'footer.description': 'Preserving and promoting the rich musical traditions of Mongolia through traditional instruments and contemporary performances.',
+    'footer.address': 'Ulaanbaatar, Mongolia',
+    'footer.phone': '+976 11 123 456',
+    'footer.email': 'info@mongolianorchestra.mn',
+    'home.instruments.title': 'Traditional Mongolian Instruments',
+    'home.instruments.description': 'Discover the unique sounds and rich history of Mongolia\'s traditional musical instruments',
+    'home.instruments.viewAll': 'View All Instruments'
+  },
+  mn: {
+    'navigation.home': 'Нүүр',
+    'navigation.instruments': 'Хөгжмийн зэмсгүүд',
+    'navigation.concerts': 'Концертууд',
+    'navigation.about': 'Бидний тухай',
+    'home.hero.watchOnYoutube': 'YouTube дээр үзэх',
+    'home.hero.learnMore': 'Дэлгэрэнгүй',
+    'home.concerts.title': 'Удахгүй болох шууд концертууд',
+    'home.concerts.getTickets': 'Тасалбар авах',
+    'home.concerts.noUpcoming': 'Одоогоор болох концерт байхгүй',
+    'home.about.title': 'Бидний тухай',
+    'home.about.description': 'Монгол Улсын Үндэсний Оркестр нь Монголын баялаг хөгжмийн уламжлалыг хадгалж, дэмжихэд зориулсан байгууллага юм. Манай хамтлаг нь уламжлалт монгол хөгжмийг болон манай соёлын өвийг хүндэтгэсэн орчин үеийн бүтээлүүдийг тоглохын тулд хамгийн сайн хөгжимчиддийг нэгтгэдэг.',
+    'home.about.readMore': 'Дэлгэрэнгүй унших',
+    'instruments.title': 'Уламжлалт Монгол Хөгжмийн Зэмсгүүд',
+    'instruments.description': 'Монголын уламжлалт хөгжмийн зэмсгүүдийн өвөрмөц дуу, баялаг түүхийг нээж мэдээрэй',
+    'instruments.overview': 'Тойм',
+    'instruments.uniqueFeatures': 'Өвөрмөц онцлогууд',
+    'instruments.originHistory': 'Гарал үүсэл ба түүх',
+    'instruments.relatedInstruments': 'Холбоотой зэмсгүүд',
+    'common.languageSwitch': 'Хэл',
+    'common.darkMode': 'Харанхуй горим',
+    'common.lightMode': 'Гэрэлтэй горим',
+    'footer.contact': 'Холбоо барих',
+    'footer.socialMedia': 'Нийгмийн сүлжээ',
+    'footer.copyright': '© 2025 Монгол Төрийн Үндэсний Хөгжмийн Их Найрал. Бүх эрх хуулиар хамгаалагдсан.',
+    'instruments.learnMore': 'Дэлгэрэнгүй',
+    'instruments.backToInstruments': 'Буцах',
+    'instruments.category.string': 'Струн',
+    'instruments.category.wind': 'Үлээвэр',
+    'instruments.category.percussion': 'Цохилт',
+    'home.hero.nowPlaying': '',
+    'home.hero.rating': 'үнэлгээ',
+    'home.hero.close': 'Хаах',
+    'footer.quickLinks': 'Шуурхай холбоосууд',
+    'footer.description': 'Уламжлалт зэмсгүүд болон орчин үеийн тоглолтуудаар Монголын баялаг хөгжмийн уламжлалыг хадгалж, дэмжих.',
+    'footer.address': 'Улаанбаатар, Монгол',
+    'footer.phone': '+976 11 123 456',
+    'footer.email': 'info@mongolianorchestra.mn',
+    'home.instruments.title': 'Уламжлалт Монгол Хөгжмийн Зэмсгүүд',
+    'home.instruments.description': 'Монголын уламжлалт хөгжмийн зэмсгүүдийн өвөрмөц дуу, баялаг түүхийг нээж мэдээрэй',
+    'home.instruments.viewAll': 'Бүх зэмсгийг харах'
+  }
+};
+
+export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const [language, setLanguage] = useState<Language>('en');
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language') as Language;
+    if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'mn')) {
+      setLanguage(savedLanguage);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('language', language);
+  }, [language]);
+
+  const t = (key: keyof typeof translations['en']): string => {
+    return (translations[language][key] ?? translations['en'][key] ?? key);
+  };
+
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t: t as (key: string) => string }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+}
+
+export function useLanguage() {
+  const context = useContext(LanguageContext);
+  if (context === undefined) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
+}
