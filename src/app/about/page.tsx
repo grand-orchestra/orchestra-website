@@ -1,419 +1,374 @@
 'use client';
 
 import { useLanguage } from '@/contexts/language-context';
-import { aboutImages } from '@/data/about-images';
-import { Award, Users, Music, Calendar, MapPin, Phone, Mail, Crown, Star, Gem } from 'lucide-react';
 
 export default function AboutPage() {
   const { t, language } = useLanguage();
 
-  const stats = [
-    {
-      icon: Users,
-      number: '70+',
-      label: language === 'en' ? 'Musicians' : 'Хөгжимчид',
-      description: language === 'en' ? 'Professional musicians' : 'Мэргэжлийн хөгжимчид'
+  const content = {
+    en: {
+      pageTitle: 'About Orchestra',
+      hero: {
+        title: 'Mongolian State National Folk Orchestra',
+        subtitle: 'Preserving the Grand Orchestral Traditions of Mongolia'
+      },
+      introduction: {
+        title: 'A Legacy of Excellence',
+        text: 'Since the era of the Hunnu Empire, the grand orchestral traditions of Mongolia have symbolized the nation\'s independence, exalted the power of the state, invoked the spirits of the ancestors, and uplifted the courage and vitality of the people. The person who was reviving and developing these grand ceremonial musical traditions of the Mongol Empire in the modern era, beginning in 1956, was Mördorj Luvsanjamb—People\'s Artist of Mongolia, State Prize Laureate, and distinguished composer.\n\nIn 1962, with the presentation of its first full-scale concert, a new chapter began in the history of the national orchestral music ensemble.\n\nToday, the National Grand Orchestra performs with a composition of sixty musicians, featuring both ancient and culturally rooted Mongolian instruments such as the morin khuur (horsehead fiddle), khuuchir, ikh khuur, bamboo flute (limbe), bayalag flute, traditional flute and horn, tsordon, great horn, yochin (dulcimer), shanz, yatga (zither), and various percussion instruments that embody Mongolia\'s nomadic life and heritage.'
+      },
+      timeline: {
+        title: 'Our History',
+        events: [
+          {
+            year: '1956',
+            title: 'The Beginning',
+            description: 'When the Estrada Concert Bureau was first established, a small ensemble consisting of six musicians—D. Batsaikhan, L. Ochirjantsan, P. Buyan, L. Maam, and Ts. Luvsansuren—laid the foundation for what would become the Mongolian folk orchestra. During the first performance of the "State Ensemble of Folk Song and Dance," the orchestra had grown to sixteen members. From 1956 onward, it came to be known as the "National Orchestra."'
+          },
+          {
+            year: '1962',
+            title: 'First Full Concert',
+            description: 'In 1962, with the presentation of its first full-scale concert, a new chapter began in the history of the national orchestral music ensemble. Today, the National Grand Orchestra performs with a composition of sixty musicians.'
+          },
+          {
+            year: '2005',
+            title: 'Presidential Recognition',
+            description: 'The orchestra has evolved into the "Mongolian State National Folk Orchestra," a title granted by a Presidential Decree in 2005. In addition to orchestral works, it has performed and created numerous musical dramas, ballets, and symphonic compositions, enriching its repertoire with both national and world masterpieces.'
+          }
+        ]
+      },
+      instruments: {
+        title: 'Traditional Instruments',
+        description: 'The orchestra features both ancient and culturally rooted Mongolian instruments that embody Mongolia\'s nomadic life and heritage:',
+        items: [
+          'Morin khuur (horsehead fiddle)',
+          'Khuuchir',
+          'Ikh khuur',
+          'Bamboo flute (limbe)',
+          'Bayalag flute',
+          'Traditional flute and horn',
+          'Tsordon',
+          'Great horn',
+          'Yochin (dulcimer)',
+          'Shanz',
+          'Yatga (zither)',
+          'Various percussion instruments'
+        ]
+      },
+      conductors: {
+        title: 'Distinguished Conductors',
+        description: 'Since 1962, the National Folk Orchestra has been conducted by prominent maestros:',
+        items: [
+          'State Prize Laureate P. Dagvajamts',
+          'Merited Composer E. Choidog',
+          'Honored Artist M. Batbayar',
+          'Merited Artist S. Sünded',
+          'Merited Composer Ts. Baatarjav',
+          'Merited Composer M. Bulgan',
+          'Merited Composer Ch. Chinbat',
+          'Merited Composer A. Tseden-Ish',
+          'Honored Artist R. Ganbat',
+          'Merited Composer N. Buyanbaatar',
+          'Honored Artist E. Munkhbayar'
+        ]
+      },
+      legacy: {
+        title: 'Musical Legacy',
+        description: 'From this orchestra emerged many well-known groups that have shaped Mongolian music:',
+        items: [
+          '"Soyol-Erdine" - gave birth to Mongolia\'s modern rock and pop music movement',
+          '"Nairamdal"',
+          '"Tavan Egshig"',
+          '"Zaluus"',
+          '"Ayalguu"',
+          '"Tenger Ayalguu"',
+          '"Khösgögtön" - traditional folk ensemble'
+        ]
+      },
+      internationalCooperation: {
+        title: 'International Cooperation',
+        description: 'Many of its musicians have studied at prestigious institutions both in Mongolia and abroad. They have won national and international music competitions, demonstrating the orchestra\'s high level of artistry and professionalism. The ensemble has represented Mongolian national music on renowned international stages, including:',
+        venues: [
+          'Meistersingerhalle in Nuremberg, Germany',
+          'Berlin Philharmonic, Germany',
+          'Gerhart Hauptmann Theater in Görlitz, Germany',
+          'Pearl Theatre in Beijing, China',
+          '"Mekin Asia" International Festival in Kyrgyzstan',
+          'UN stage in France',
+          'Major events in South Korea, India, Tajikistan, and Kyrgyzstan'
+        ]
+      },
+      majorWorks: {
+        title: 'Featured Performances',
+        description: 'The orchestra has presented major symphonic programs including:',
+        works: [
+          '"Awakened Steppe" by Hero of Labor and Merited Composer B. Sharav',
+          '"Resonance of Desire" by People\'s Artist and Hero of Labor N. Jantsannorov',
+          '"Beautiful Mongolia"',
+          '"Naadam Evening"'
+        ]
+      }
     },
-    {
-      icon: Calendar,
-      number: '60+',
-      label: language === 'en' ? 'Years' : 'Жил',
-      description: language === 'en' ? 'Of musical excellence' : 'Хөгжмийн урлагийн түүх'
-    },
-    {
-      icon: Music,
-      number: '200+',
-      label: language === 'en' ? 'Performances' : 'Тоглолт',
-      description: language === 'en' ? 'Annual concerts' : 'Жил бүрийн концерт'
-    },
-    {
-      icon: Award,
-      number: '15+',
-      label: language === 'en' ? 'Awards' : 'Шагнал',
-      description: language === 'en' ? 'National recognition' : 'Үндэсний хүлээн зөвшөөрөл'
+    mn: {
+      pageTitle: 'Бидний тухай',
+      hero: {
+        title: 'Монгол Төрийн Үндэсний Хөгжмийн Их Найрал',
+        subtitle: 'Монголын их найрлын уламжлалыг хадгалж хөгжүүлж байна'
+      },
+      introduction: {
+        title: 'Гайхамшигт түүх',
+        text: 'Хүн улсын үеэс Монгол улсын тусгаар тогтнолыг илтгэн, төрийн сүр хүчийг бадраан, дээдсийн онгон шүтээнийг урин дуудаж, түмэн олны сүлд хийморийг сэргээх уламжлалтай Монголын эзэнт гүрний их найрлын зан үйлийг 1956 оноос эхлэн шинэ цаг үед сэргээн бий болгож, хөгжүүлсэн хүн бол Ардын жүжигчин, Төрийн шагналт Л.Мөрдорж юм.\n\n1962 онд анхны бүрэн хэмжээний тоглолтоо толилуулснаар чуулгын үндэсний хөгжмийн их найрлын түүхийн шинэ хуудсыг нээсэн бөгөөд өнөөдөр үндэсний хөгжмийн их найрал 60 хөгжимчний бүрэлдэхүүнтэйгээр эгшиглэж байна.\n\nЭнэхүү найрал хөгжимд Морин хуур, хуучир, их хуур, Лимбэ, Баялаг бишгүүр, Ардын бишгүүр эвэр бүрээ, Цордон, Их бүрээ, ёочин, Шанз, Ятга, Цохивор зэрэг эртний болон Монгол ахуй соёлоос үүссэн хөгжмийн зэмсэгүүд багтдаг.'
+      },
+      timeline: {
+        title: 'Түүхэн замнал',
+        events: [
+          {
+            year: '1956',
+            title: 'Эхлэл',
+            description: 'Эстрад-концертын товчоо байгуулагдах үед анх Д. Батсайхан, Л. Очиржанцан, П. Буян, Л. Маам, Ц. Лувсансүрэн хэмээх зургаан хөгжимчний бүрэлдэхүүнтэй цөөхүүл хөгжмөөр ардын найрал хөгжмийн суурь тавигдаж, "Ардын дуу танцны улсын ансамбль"-ийн анхны тоглолт хийхэд ардын найрал хөгжим 16 хүний бүрэлдэхүүнтэй байсан байна. 1956 оноос эхлэн "Үндэсний Хөгжмийн Оркестр" хэмээн нэрлэгдэх болжээ.'
+          },
+          {
+            year: '1962',
+            title: 'Анхны бүрэн тоглолт',
+            description: '1962 онд анхны бүрэн хэмжээний тоглолтоо толилуулсан хугацаанаас чуулгын үндэсний хөгжмийн их найрлын түүхийн хуудсыг тоолох болсон.'
+          },
+          {
+            year: '2005',
+            title: 'Ерөнхийлөгчийн зарлиг',
+            description: 'Өдгөө үндэсний хөгжмийн их найрал нь Монгол улсын ерөнхийлөгчийн 2005 оны зарлигаар "Монгол төрийн үндэсний хөгжмийн их найрал" болтлоо хөгжиж дан найрал хөгжмийн бүтээлээс гадна дуулалт жүжиг, бүжгэн жүжгийн бүтээлийг бүтээсээр урын сандаа үндэсний болон дэлхийн шилдэг олон арван бүтээлүүдээр сонсогч олныхоо сонорыг мялаасаар байна.'
+          }
+        ]
+      },
+      conductors: {
+        title: 'Алдарт удирдаачид',
+        description: 'Үндэсний хөгжмийн их найрлыг удирдан тоглуулж ирсэн удирдаачид:',
+        items: [
+          'СГЗ П. Дагважамц',
+          'УГЗ, ТШ Э. Чойдог',
+          'СТА М. Батбаяр',
+          'УГЖ С. Сүндэд',
+          'УГЗ Ц. Баатаржав',
+          'УГЗ М. Булган',
+          'УГЗ Ч. Чинбат',
+          'УГЗ А. Цэдэн-Иш',
+          'СТА Р. Ганбат',
+          'УГЗ Н. Буянбаатар',
+          'СТА Э. Мөнхбаяр'
+        ]
+      },
+      legacy: {
+        title: 'Хөгжмийн өвийн',
+        description: 'Энэ найрал хөгжмийн бүрэлдэхүүнээс олон нэрд гарсан хөгжмийн хамтлагууд төрөн гарсан:',
+        items: [
+          '"Соёл-Эрдэнэ" - Монголын орчин үеийн рок поп хөгжмийн урсгал эх авсан',
+          '"Найрамдал"',
+          '"Таван эгшиг"',
+          '"Залуус"',
+          '"Аялгуу"',
+          '"Тэнгэр аялгуу"',
+          '"Хөсөгтөн" - язгуур урлагийн хамтлаг'
+        ]
+      },
+      internationalCooperation: {
+        title: 'Олон улсын хамтын ажиллагаа',
+        description: 'Монгол төрийн үндэсний хөгжмийн их найрлын уран бүтээлчид бид гадаад дотоодын олон томоохон тайзнаа үндэсний хөгжмөө суртачилан таниулан ирсэн билээ. Үүнээс дурдвал:',
+        venues: [
+          'ХБНГУ-ын Нюрнберг хотын Мейстерсингерхалле',
+          'Берлиний Филармони',
+          'Гөрлиц хотын Герхард Хауптман театр',
+          'БНХАУ Бээжин хотын Сувдан театр',
+          'Бүгд найрамдах Киргиз улсад "Мейкин Азиа" олон улсын фестиваль',
+          'Франц улсын НҮБ-ын тайзнаа',
+          'Солонгос, Энэтхэг, Тажикстан, Киргиз улсад ерөнхийлөгчийн айлчлал'
+        ]
+      },
+      majorWorks: {
+        title: 'Онцлох бүтээлүүд',
+        description: 'Мөн Тэргүүн зэргийн Чингис хаан одонт ТШ Хөдөлмөрийн баатар УГЗ Б. Шаравын "Сэрсэн тал", ТхШ АЖ Хөдөлмөрийн баатар Н. Жанцанноровын "Хүслийн төвөргөөн", мөн "Монголын сайхан орон", "Наадмын үдэш" гэх мэт дан хөгжмийн томоохон хэмжээний тоглолтоо толилуулж байжээ.'
+      }
     }
-  ];
+  };
+
+  const currentContent = content[language];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
-      {/* Decorative Header */}
+      {/* Hero Section */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-gold/10 via-transparent to-gold/10"></div>
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20" suppressHydrationWarning>
-          {/* Hero Section */}
-          <div className="text-center mb-20 relative">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-gold mb-8 classic-heading relative">
-              <span className="relative">
-                {language === 'en' ? 'About Mongolian National Orchestra' : 'Монгол Улсын Үндэсний Оркестрын тухай'}
-                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gold"></div>
-              </span>
-            </h1>
-            
-            <div className="max-w-5xl mx-auto">
-              <p className="text-xl lg:text-2xl text-gold-light/90 leading-relaxed classic-text mb-8">
-                {language === 'en' 
-                  ? 'Preserving the rich musical heritage of Mongolia through traditional instruments and contemporary performances, while fostering cultural exchange and musical innovation.'
-                  : 'Уламжлалт зэмсгүүд болон орчин үеийн тоглолтуудаар Монголын баялаг хөгжмийн өвийг хадгалж, соёлын солилцоо болон хөгжмийн шинэчлэлийг дэмжин ажилладаг байгууллага.'
-                }
-              </p>
-              
-              {/* Decorative Quote */}
-              <div className="relative max-w-4xl mx-auto">
-                <div className="absolute left-0 top-0 text-6xl text-gold/20 font-serif">"</div>
-                <blockquote className="text-lg text-gold/80 italic font-serif pl-8 pr-8">
-                  {language === 'en' 
-                    ? 'Music is the universal language of mankind, and in our orchestra, we speak it with the soul of Mongolia.'
-                    : 'Хөгжим бол хүн төрөлхтний бүх нийтийн хэл бөгөөд бидний оркестрт Монголын сүнсээр ярьдаг.'
-                  }
-                </blockquote>
-                <div className="absolute right-0 bottom-0 text-6xl text-gold/20 font-serif">"</div>
-              </div>
+          {/* Page Title */}
+          <div className="mb-12 animate-fade-in">
+            <div className="flex justify-center">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gold classic-heading">
+                {currentContent.pageTitle}
+              </h1>
             </div>
           </div>
 
-          {/* Stats Section */}
-          <div className="mb-20">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-serif font-bold text-gold mb-4 classic-heading">
-                {language === 'en' ? 'Our Legacy in Numbers' : 'Бидний өвийн тоо'}
-              </h2>
-              <div className="w-16 h-1 bg-gold mx-auto"></div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {stats.map((stat, index) => (
-                <div key={index} className="group relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-gold/5 rounded-2xl transform rotate-1 group-hover:rotate-0 transition-transform duration-300"></div>
-                  <div className="relative bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm border border-gold/30 rounded-2xl p-8 text-center hover:border-gold/60 transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-gold/20">
-                    <div className="flex justify-center mb-6">
-                      <div className="p-4 bg-gold/10 rounded-full group-hover:bg-gold/20 transition-colors duration-300">
-                        <stat.icon className="w-8 h-8 text-gold" />
-                      </div>
-                    </div>
-                    <div className="text-4xl font-serif font-bold text-gold mb-3 group-hover:scale-110 transition-transform duration-300">
-                      {stat.number}
-                    </div>
-                    <div className="text-xl font-semibold text-gold-light mb-2 classic-text">
-                      {stat.label}
-                    </div>
-                    <div className="text-gold/70 text-sm classic-text">
-                      {stat.description}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Mission & Vision */}
-          <div className="mb-20">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-serif font-bold text-gold mb-6 classic-heading">
-                {language === 'en' ? 'Our Purpose & Vision' : 'Бидний зорилго болон хараа'}
-              </h2>
-              <div className="w-24 h-1 bg-gold mx-auto mb-4"></div>
-              <p className="text-gold-light/80 text-lg classic-text max-w-3xl mx-auto">
-                {language === 'en' 
-                  ? 'Guided by tradition, inspired by innovation, and dedicated to excellence in every performance.'
-                  : 'Уламжлалаар удирдуулж, шинэчлэлээр урамшуулж, тоглолт бүрт төгс байдлыг зорин ажилладаг.'
-                }
+          {/* Introduction Paragraph */}
+          <div className="mb-20 animate-fade-in">
+            <div className="max-w-5xl mx-auto px-4">
+              <p className="text-gold-light/90 leading-relaxed classic-text text-lg md:text-xl whitespace-pre-line">
+                {currentContent.introduction.text}
               </p>
-            </div>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent rounded-3xl transform -rotate-1 group-hover:rotate-0 transition-transform duration-500"></div>
-                <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 backdrop-blur-sm border border-gold/40 rounded-3xl p-10 hover:border-gold/70 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-gold/25">
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mr-4">
-                      <Crown className="w-6 h-6 text-gold" />
-                    </div>
-                    <h3 className="text-2xl font-serif font-bold text-gold classic-heading">
-                      {language === 'en' ? 'Our Mission' : 'Бидний эрхэм зорилго'}
-                    </h3>
-                  </div>
-                  <p className="text-gold-light/90 leading-relaxed classic-text text-lg">
-                    {language === 'en'
-                      ? 'To preserve, promote, and celebrate the rich musical traditions of Mongolia while fostering innovation and cultural exchange. We strive to inspire future generations through the power of traditional music and contemporary compositions.'
-                      : 'Монголын баялаг хөгжмийн уламжлалыг хадгалж, дэмжиж, тэмдэглэх, шинэчлэл болон соёлын солилцоог дэмжин ажиллах. Уламжлалт хөгжмийн хүч болон орчин үеийн бүтээлүүдийн хөгжмийн тайлбарыг удирддаг.'
-                    }
-                  </p>
-                </div>
-              </div>
-              
-              <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent rounded-3xl transform rotate-1 group-hover:rotate-0 transition-transform duration-500"></div>
-                <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 backdrop-blur-sm border border-gold/40 rounded-3xl p-10 hover:border-gold/70 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-gold/25">
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mr-4">
-                      <Star className="w-6 h-6 text-gold" />
-                    </div>
-                    <h3 className="text-2xl font-serif font-bold text-gold classic-heading">
-                      {language === 'en' ? 'Our Vision' : 'Бидний алсын хараа'}
-                    </h3>
-                  </div>
-                  <p className="text-gold-light/90 leading-relaxed classic-text text-lg">
-                    {language === 'en'
-                      ? 'To be the leading cultural institution in Mongolia, recognized internationally for our commitment to musical excellence, cultural preservation, and innovative performances that bridge traditional and contemporary music.'
-                      : 'Монголд тэргүүлэх соёлын байгууллага болж, хөгжмийн урлагийн төгс байдал, соёлын хадгалт, уламжлалт болон орчин үеийн хөгжмийг холбосон шинэлэг тоглолтуудаар олон улсад хүлээн зөвшөөрөгдөх.'
-                    }
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
 
           {/* History Timeline */}
-          <div className="mb-20">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-serif font-bold text-gold mb-6 classic-heading">
-                {language === 'en' ? 'Our Journey Through Time' : 'Цаг хугацааны урсгал дахь бидний замнал'}
-              </h2>
-              <div className="w-24 h-1 bg-gold mx-auto mb-4"></div>
-              <p className="text-gold-light/80 text-lg classic-text max-w-3xl mx-auto">
-                {language === 'en' 
-                  ? 'A legacy of musical excellence spanning over six decades of cultural preservation and artistic innovation.'
-                  : 'Соёлын хадгалт болон урлагийн шинэчлэлийн зургаан арван жилийн турш хөгжмийн урлагийн төгс байдлын өвийг бий болгосон.'
-                }
-              </p>
-            </div>
-            
+          <div className="mb-20 animate-fade-in-delay-2">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-gold text-center mb-8 classic-heading">
+              {currentContent.timeline.title}
+            </h2>
             <div className="relative">
               {/* Timeline Line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gold via-gold/60 to-gold"></div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gold via-gold/60 to-gold hidden md:block"></div>
               
-              <div className="space-y-16">
-                {/* 1962 */}
-                <div className="relative flex items-center">
-                  <div className="w-1/2 pr-8 text-right">
-                    <div className="group relative">
-                      <div className="absolute inset-0 bg-gradient-to-l from-gold/10 to-transparent rounded-2xl transform -rotate-1 group-hover:rotate-0 transition-transform duration-500"></div>
-                      <div className="relative bg-gradient-to-l from-gray-900/95 to-black/95 backdrop-blur-sm border border-gold/40 rounded-2xl p-8 hover:border-gold/70 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-gold/25">
-                        <div className="text-5xl font-serif font-bold text-gold mb-4">1962</div>
-                        <h3 className="text-2xl font-serif font-bold text-gold-light mb-4 classic-heading">
-                          {language === 'en' ? 'Foundation' : 'Үүсгэн байгуулагдсан'}
-                        </h3>
-                        <p className="text-gold-light/90 leading-relaxed classic-text">
-                          {language === 'en'
-                            ? 'At the initiative of L. Murdorj—People\'s Artist of Mongolia, double State Prize laureate, and distinguished composer—the National Orchestra of Traditional Music was founded, bringing together an ensemble of more than fifty musicians.'
-                            : 'Ардын жүжигчин, Төрийн хошой шагналт, Хөгжмийн зохиолч Л.Мөрдоржийн санаачлагаар "Үндэсний Хөгжмийн Их Найрал" 50 гаруй хүний бүрэлдэхүүнтэй байгуулагджээ.'
-                          }
-                        </p>
+              <div className="space-y-4 md:space-y-2">
+                {currentContent.timeline.events.map((event, index) => {
+                  const isEven = index % 2 === 0;
+                  return (
+                    <div key={event.year} className={`relative flex flex-col md:flex-row items-center ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                      <div className={`w-full md:w-1/2 ${isEven ? 'md:pr-3 md:text-right' : 'md:pl-3 md:text-left'}`}>
+                        <div className="group relative">
+                          {isEven ? (
+                            <div className="absolute inset-0 bg-gradient-to-l from-gold/10 to-transparent rounded-lg transform -rotate-1 group-hover:rotate-0 transition-transform duration-500"></div>
+                          ) : (
+                            <div className="absolute inset-0 bg-gradient-to-r from-gold/10 to-transparent rounded-lg transform rotate-1 group-hover:rotate-0 transition-transform duration-500"></div>
+                          )}
+                          {isEven ? (
+                            <div className="relative bg-gradient-to-l from-gray-900/95 to-black/95 backdrop-blur-sm rounded-lg p-3 md:p-3 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-gold/25">
+                              <div className="text-2xl md:text-2xl font-serif font-bold text-gold mb-1">{event.year}</div>
+                              <h3 className="text-base md:text-base font-serif font-bold text-gold-light mb-1 classic-heading">
+                                {event.title}
+                              </h3>
+                              <p className="text-gold-light/90 leading-snug classic-text text-sm md:text-sm">
+                                {event.description}
+                              </p>
+                            </div>
+                          ) : (
+                            <div className="relative bg-gradient-to-r from-gray-900/95 to-black/95 backdrop-blur-sm rounded-lg p-3 md:p-3 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-gold/25">
+                              <div className="text-2xl md:text-2xl font-serif font-bold text-gold mb-1">{event.year}</div>
+                              <h3 className="text-base md:text-base font-serif font-bold text-gold-light mb-1 classic-heading">
+                                {event.title}
+                              </h3>
+                              <p className="text-gold-light/90 leading-snug classic-text text-sm md:text-sm">
+                                {event.description}
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      
+                      {/* Timeline Dot */}
+                      <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-gold rounded-full shadow-lg hidden md:block"></div>
+                      
+                      <div className={`w-full md:w-1/2 ${isEven ? 'md:pl-3' : 'md:pr-3'}`}></div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+          
+          {/* Conductors Section */}
+          <div className="mb-20">
+            <div className="classic-card rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-gold mb-6 classic-heading">
+                {currentContent.conductors.title}
+              </h2>
+              <p className="text-gold-light/90 leading-relaxed classic-text text-lg mb-6">
+                {currentContent.conductors.description}
+              </p>
+              {'items' in currentContent.conductors && (
+                <div className="space-y-3">
+                  {currentContent.conductors.items.map((item: string, index: number) => (
+                    <div
+                      key={index}
+                      className="group relative bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg p-4 hover:from-gray-900/70 hover:to-black/70 transition-all duration-300"
+                    >
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-gold rounded-full mr-4 shrink-0"></div>
+                        <span className="text-gold-light/90 classic-text">{item}</span>
                       </div>
                     </div>
-                  </div>
-                  
-                  {/* Timeline Dot */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gold rounded-full border-4 border-black shadow-lg"></div>
-                  
-                  <div className="w-1/2 pl-8"></div>
+                  ))}
                 </div>
-                
-                {/* 2005 */}
-                <div className="relative flex items-center">
-                  <div className="w-1/2 pr-8"></div>
-                  
-                  {/* Timeline Dot */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gold rounded-full border-4 border-black shadow-lg"></div>
-                  
-                  <div className="w-1/2 pl-8">
-                    <div className="group relative">
-                      <div className="absolute inset-0 bg-gradient-to-r from-gold/10 to-transparent rounded-2xl transform rotate-1 group-hover:rotate-0 transition-transform duration-500"></div>
-                      <div className="relative bg-gradient-to-r from-gray-900/95 to-black/95 backdrop-blur-sm border border-gold/40 rounded-2xl p-8 hover:border-gold/70 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-gold/25">
-                        <div className="text-5xl font-serif font-bold text-gold mb-4">2005</div>
-                        <h3 className="text-2xl font-serif font-bold text-gold-light mb-4 classic-heading">
-                          {language === 'en' ? 'Presidential Decree' : 'Ерөнхийлөгчийн зарлиг'}
-                        </h3>
-                        <p className="text-gold-light/90 leading-relaxed classic-text">
-                          {language === 'en'
-                            ? 'The National Orchestra of Traditional Music has been expanded and restructured into the \'Mongolian Grand National Orchestra of Traditional Music.\''
-                            : 'Үндэсний хөгжмийн их найрлыг "Монгол Төрийн Үндэсний Хөгжмийн Их Найрал" болгож бүтэц бүрэлдхүүнийг улам өргөжүүлжээ.'
-                          }
-                        </p>
+              )}
+            </div>
+          </div>
+
+          {/* Legacy Section */}
+          <div className="mb-20">
+            <div className="classic-card rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-gold mb-6 classic-heading">
+                {currentContent.legacy.title}
+              </h2>
+              <p className="text-gold-light/90 leading-relaxed classic-text text-lg mb-6">
+                {currentContent.legacy.description}
+              </p>
+              {'items' in currentContent.legacy && (
+                <div className="space-y-3">
+                  {currentContent.legacy.items.map((item: string, index: number) => (
+                    <div
+                      key={index}
+                      className="group relative bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg p-4 hover:from-gray-900/70 hover:to-black/70 transition-all duration-300"
+                    >
+                      <div className="flex items-center">
+                        <div className="w-3 h-3 bg-gold rounded-full mr-4 shrink-0"></div>
+                        <span className="text-gold-light/90 classic-text">{item}</span>
                       </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
-                
-                {/* 2025 */}
-                <div className="relative flex items-center">
-                  <div className="w-1/2 pr-8 text-right">
-                    <div className="group relative">
-                      <div className="absolute inset-0 bg-gradient-to-l from-gold/10 to-transparent rounded-2xl transform -rotate-1 group-hover:rotate-0 transition-transform duration-500"></div>
-                      <div className="relative bg-gradient-to-l from-gray-900/95 to-black/95 backdrop-blur-sm border border-gold/40 rounded-2xl p-8 hover:border-gold/70 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-gold/25">
-                        <div className="text-5xl font-serif font-bold text-gold mb-4">2025</div>
-                        <h3 className="text-2xl font-serif font-bold text-gold-light mb-4 classic-heading">
-                          {language === 'en' ? 'Modern Era' : 'Орчин үе'}
-                        </h3>
-                        <p className="text-gold-light/90 leading-relaxed classic-text">
-                          {language === 'en'
-                            ? 'The orchestra continues to present numerous masterpieces of both national and world classical music at a highly professional level, delighting audiences and listeners alike.'
-                            : 'Үндэсний болон дэлхийн сонгодог олон арван бүтээлүүдийг мэргэжлийн өндөр түвшинд туурвин үзэгч, сонсогчдын сонорыг мялаасаар байна.'
-                          }
-                        </p>
-                      </div>
-                    </div>
+              )}
+            </div>
+          </div>
+
+          {/* International Cooperation */}
+          <div className="mb-20">
+            <div className="max-w-4xl mx-auto px-4">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-gold mb-4 classic-heading text-center">
+                {currentContent.internationalCooperation.title}
+              </h2>
+              <p className="text-gold-light/90 leading-relaxed classic-text text-lg mb-6">
+                {currentContent.internationalCooperation.description}
+              </p>
+              <div className="space-y-2">
+                {currentContent.internationalCooperation.venues.map((venue: string, index: number) => (
+                  <div key={index} className="flex items-start">
+                    <div className="w-2 h-2 bg-gold rounded-full mr-3 mt-2 shrink-0"></div>
+                    <span className="text-gold-light/90 classic-text text-base">{venue}</span>
                   </div>
-                  
-                  {/* Timeline Dot */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gold rounded-full border-4 border-black shadow-lg"></div>
-                  
-                  <div className="w-1/2 pl-8"></div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Leadership Team */}
+          {/* Major Works */}
           <div className="mb-20">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-serif font-bold text-gold mb-6 classic-heading">
-                {language === 'en' ? 'Our Distinguished Leadership' : 'Бидний нэр хүндтэй удирдлага'}
+            <div className="max-w-4xl mx-auto px-4">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-gold mb-6 classic-heading text-center">
+                {currentContent.majorWorks.title}
               </h2>
-              <div className="w-24 h-1 bg-gold mx-auto mb-4"></div>
-              <p className="text-gold-light/80 text-lg classic-text max-w-3xl mx-auto">
-                {language === 'en' 
-                  ? 'Meet the visionary leaders who guide our orchestra with passion, expertise, and unwavering dedication to musical excellence.'
-                  : 'Хөгжмийн урлагийн төгс байдалд хүсэл тэмүүлэл, мэргэжлийн чадвар, тэсч тэвчээртэй хандалтаар бидний оркестрыг удирддаг алсын хараатай удирдагч нартай танилцаарай.'
-                }
+              <p className="text-gold-light/90 leading-relaxed classic-text text-lg mb-6">
+                {language === 'en' ? currentContent.majorWorks.description : ''}
               </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-gold/5 rounded-3xl transform rotate-1 group-hover:rotate-0 transition-transform duration-500"></div>
-                <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 backdrop-blur-sm border border-gold/40 rounded-3xl p-8 text-center hover:border-gold/70 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-gold/25">
-                  <div className="relative mb-6">
-                    <div className="w-32 h-32 bg-gradient-to-br from-gold to-gold-dark rounded-full mx-auto flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-black text-3xl font-bold font-serif">БД</span>
+              {language === 'en' && 'works' in currentContent.majorWorks ? (
+                <div className="space-y-2">
+                  {currentContent.majorWorks.works.map((work: string, index: number) => (
+                    <div key={index} className="flex items-start">
+                      <div className="w-2 h-2 bg-gold rounded-full mr-3 mt-2 shrink-0"></div>
+                      <span className="text-gold-light/90 classic-text text-base italic">{work}</span>
                     </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-gold rounded-full flex items-center justify-center">
-                      <Crown className="w-4 h-4 text-black" />
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-serif font-bold text-gold-light mb-2 classic-heading">
-                    {language === 'en' ? 'Batdorj Davaa' : 'Батдорж Даваа'}
-                  </h3>
-                  <p className="text-gold font-semibold mb-4 text-lg">
-                    {language === 'en' ? 'Artistic Director' : 'Урлагийн захирал'}
-                  </p>
-                  <p className="text-gold-light/80 leading-relaxed classic-text">
-                    {language === 'en'
-                      ? 'Leading the artistic vision and musical direction of the orchestra with decades of experience in traditional Mongolian music.'
-                      : 'Уламжлалт монгол хөгжмийн талаар олон жилийн туршлагатайгаар оркестрын урлагийн хараа болон хөгжмийн чиглэлийг удирддаг.'
-                    }
-                  </p>
+                  ))}
                 </div>
-              </div>
-              
-              <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-gold/5 rounded-3xl transform -rotate-1 group-hover:rotate-0 transition-transform duration-500"></div>
-                <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 backdrop-blur-sm border border-gold/40 rounded-3xl p-8 text-center hover:border-gold/70 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-gold/25">
-                  <div className="relative mb-6">
-                    <div className="w-32 h-32 bg-gradient-to-br from-gold to-gold-dark rounded-full mx-auto flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-black text-3xl font-bold font-serif">СБ</span>
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-gold rounded-full flex items-center justify-center">
-                      <Star className="w-4 h-4 text-black" />
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-serif font-bold text-gold-light mb-2 classic-heading">
-                    {language === 'en' ? 'Suvd Bat' : 'Сүвд Бат'}
-                  </h3>
-                  <p className="text-gold font-semibold mb-4 text-lg">
-                    {language === 'en' ? 'Executive Director' : 'Гүйцэтгэх захирал'}
-                  </p>
-                  <p className="text-gold-light/80 leading-relaxed classic-text">
-                    {language === 'en'
-                      ? 'Overseeing operations and strategic development of the organization with a focus on cultural preservation and growth.'
-                      : 'Соёлын хадгалт болон хөгжлийг анхаарч байгууллагын үйл ажиллагаа болон стратегийн хөгжлийг удирддаг.'
-                    }
-                  </p>
-                </div>
-              </div>
-              
-              <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-gold/5 rounded-3xl transform rotate-1 group-hover:rotate-0 transition-transform duration-500"></div>
-                <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 backdrop-blur-sm border border-gold/40 rounded-3xl p-8 text-center hover:border-gold/70 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-gold/25">
-                  <div className="relative mb-6">
-                    <div className="w-32 h-32 bg-gradient-to-br from-gold to-gold-dark rounded-full mx-auto flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-black text-3xl font-bold font-serif">МБ</span>
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-gold rounded-full flex items-center justify-center">
-                      <Music className="w-4 h-4 text-black" />
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-serif font-bold text-gold-light mb-2 classic-heading">
-                    {language === 'en' ? 'Munkhbayar Bold' : 'Мөнхбаяр Болд'}
-                  </h3>
-                  <p className="text-gold font-semibold mb-4 text-lg">
-                    {language === 'en' ? 'Principal Conductor' : 'Ерөнхий дирижер'}
-                  </p>
-                  <p className="text-gold-light/80 leading-relaxed classic-text">
-                    {language === 'en'
-                      ? 'Leading performances and musical interpretation of traditional pieces with exceptional artistry and deep cultural understanding.'
-                      : 'Гайхамшигтай урлагийн чадвар болон гүн гүнзгий соёлын ойлголттойгоор тоглолтууд болон уламжлалт бүтээлүүдийн хөгжмийн тайлбарыг удирддаг.'
-                    }
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Information */}
-          <div className="mb-20">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-serif font-bold text-gold mb-6 classic-heading">
-                {language === 'en' ? 'Connect With Us' : 'Бидэнтэй холбоо барина уу'}
-              </h2>
-              <div className="w-24 h-1 bg-gold mx-auto mb-4"></div>
-              <p className="text-gold-light/80 text-lg classic-text max-w-3xl mx-auto">
-                {language === 'en' 
-                  ? 'We welcome your inquiries, collaboration proposals, and feedback. Reach out to us through any of the channels below.'
-                  : 'Танаас ирсэн асуулт, хамтын ажиллагааны санал, санал хүсэлтийг хүлээн авч байна. Доорх сувгуудаар бидэнтэй холбоо барина уу.'
-                }
-              </p>
-            </div>
-            
-            <div className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent rounded-3xl transform rotate-1 group-hover:rotate-0 transition-transform duration-500"></div>
-              <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 backdrop-blur-sm border border-gold/40 rounded-3xl p-12 hover:border-gold/70 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-gold/25">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                  <div className="text-center group/item">
-                    <div className="w-20 h-20 bg-gradient-to-br from-gold to-gold-dark rounded-full mx-auto mb-6 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300 shadow-2xl">
-                      <MapPin className="w-10 h-10 text-black" />
-                    </div>
-                    <h3 className="text-2xl font-serif font-bold text-gold-light mb-4 classic-heading">
-                      {language === 'en' ? 'Address' : 'Хаяг'}
-                    </h3>
-                    <p className="text-gold-light/90 classic-text text-lg">
-                      {language === 'en' ? 'Ulaanbaatar, Mongolia' : 'Улаанбаатар, Монгол'}
-                    </p>
-                  </div>
-                  
-                  <div className="text-center group/item">
-                    <div className="w-20 h-20 bg-gradient-to-br from-gold to-gold-dark rounded-full mx-auto mb-6 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300 shadow-2xl">
-                      <Phone className="w-10 h-10 text-black" />
-                    </div>
-                    <h3 className="text-2xl font-serif font-bold text-gold-light mb-4 classic-heading">
-                      {language === 'en' ? 'Phone' : 'Утас'}
-                    </h3>
-                    <p className="text-gold-light/90 classic-text text-lg">+976 11 123 456</p>
-                  </div>
-                  
-                  <div className="text-center group/item">
-                    <div className="w-20 h-20 bg-gradient-to-br from-gold to-gold-dark rounded-full mx-auto mb-6 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300 shadow-2xl">
-                      <Mail className="w-10 h-10 text-black" />
-                    </div>
-                    <h3 className="text-2xl font-serif font-bold text-gold-light mb-4 classic-heading">
-                      {language === 'en' ? 'Email' : 'И-мэйл'}
-                    </h3>
-                    <p className="text-gold-light/90 classic-text text-lg">info@mongolianorchestra.mn</p>
-                  </div>
-                </div>
-              </div>
+              ) : (
+                <p className="text-gold-light/90 leading-relaxed classic-text text-lg">
+                  {currentContent.majorWorks.description}
+                </p>
+              )}
             </div>
           </div>
         </div>

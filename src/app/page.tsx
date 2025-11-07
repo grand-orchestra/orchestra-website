@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <HeroCarousel />
-      <ConcertsSection />
+      {/* <ConcertsSection /> */}
       <AboutSection />
       <InstrumentsPreview />
     </>
