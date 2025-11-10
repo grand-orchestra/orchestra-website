@@ -7,7 +7,7 @@ export default function AboutPage() {
 
   const content = {
     en: {
-      pageTitle: 'About Orchestra',
+      pageTitle: 'History of the National Orchestra',
       hero: {
         title: 'Mongolian State National Folk Orchestra',
         subtitle: 'Preserving the Grand Orchestral Traditions of Mongolia'
@@ -54,62 +54,21 @@ export default function AboutPage() {
           'Various percussion instruments'
         ]
       },
-      conductors: {
-        title: 'Distinguished Conductors',
-        description: 'Since 1962, the National Folk Orchestra has been conducted by prominent maestros:',
-        items: [
-          'State Prize Laureate P. Dagvajamts',
-          'Merited Composer E. Choidog',
-          'Honored Artist M. Batbayar',
-          'Merited Artist S. Sünded',
-          'Merited Composer Ts. Baatarjav',
-          'Merited Composer M. Bulgan',
-          'Merited Composer Ch. Chinbat',
-          'Merited Composer A. Tseden-Ish',
-          'Honored Artist R. Ganbat',
-          'Merited Composer N. Buyanbaatar',
-          'Honored Artist E. Munkhbayar'
-        ]
-      },
       legacy: {
-        title: 'Musical Legacy',
-        description: 'From this orchestra emerged many well-known groups that have shaped Mongolian music:',
+        title: 'The Grand National Orchestra composition',
         items: [
-          '"Soyol-Erdine" - gave birth to Mongolia\'s modern rock and pop music movement',
-          '"Nairamdal"',
-          '"Tavan Egshig"',
-          '"Zaluus"',
-          '"Ayalguu"',
-          '"Tenger Ayalguu"',
-          '"Khösgögtön" - traditional folk ensemble'
+          "Woodwinds group ",
+          "Brass group",
+          "Strings group",
+          "Chordophone group",
+          "Percussion group", 
+          "Folk Quintet",
+          "Folk group",
         ]
       },
-      internationalCooperation: {
-        title: 'International Cooperation',
-        description: 'Many of its musicians have studied at prestigious institutions both in Mongolia and abroad. They have won national and international music competitions, demonstrating the orchestra\'s high level of artistry and professionalism. The ensemble has represented Mongolian national music on renowned international stages, including:',
-        venues: [
-          'Meistersingerhalle in Nuremberg, Germany',
-          'Berlin Philharmonic, Germany',
-          'Gerhart Hauptmann Theater in Görlitz, Germany',
-          'Pearl Theatre in Beijing, China',
-          '"Mekin Asia" International Festival in Kyrgyzstan',
-          'UN stage in France',
-          'Major events in South Korea, India, Tajikistan, and Kyrgyzstan'
-        ]
-      },
-      majorWorks: {
-        title: 'Featured Performances',
-        description: 'The orchestra has presented major symphonic programs including:',
-        works: [
-          '"Awakened Steppe" by Hero of Labor and Merited Composer B. Sharav',
-          '"Resonance of Desire" by People\'s Artist and Hero of Labor N. Jantsannorov',
-          '"Beautiful Mongolia"',
-          '"Naadam Evening"'
-        ]
-      }
     },
     mn: {
-      pageTitle: 'Бидний тухай',
+      pageTitle: 'Найрал хөгжмийн түүх',
       hero: {
         title: 'Монгол Төрийн Үндэсний Хөгжмийн Их Найрал',
         subtitle: 'Монголын их найрлын уламжлалыг хадгалж хөгжүүлж байна'
@@ -138,53 +97,18 @@ export default function AboutPage() {
           }
         ]
       },
-      conductors: {
-        title: 'Алдарт удирдаачид',
-        description: 'Үндэсний хөгжмийн их найрлыг удирдан тоглуулж ирсэн удирдаачид:',
-        items: [
-          'СГЗ П. Дагважамц',
-          'УГЗ, ТШ Э. Чойдог',
-          'СТА М. Батбаяр',
-          'УГЖ С. Сүндэд',
-          'УГЗ Ц. Баатаржав',
-          'УГЗ М. Булган',
-          'УГЗ Ч. Чинбат',
-          'УГЗ А. Цэдэн-Иш',
-          'СТА Р. Ганбат',
-          'УГЗ Н. Буянбаатар',
-          'СТА Э. Мөнхбаяр'
-        ]
-      },
       legacy: {
-        title: 'Хөгжмийн өвийн',
-        description: 'Энэ найрал хөгжмийн бүрэлдэхүүнээс олон нэрд гарсан хөгжмийн хамтлагууд төрөн гарсан:',
+        title: 'Найрал хөгжмийн бүтэц',
         items: [
-          '"Соёл-Эрдэнэ" - Монголын орчин үеийн рок поп хөгжмийн урсгал эх авсан',
-          '"Найрамдал"',
-          '"Таван эгшиг"',
-          '"Залуус"',
-          '"Аялгуу"',
-          '"Тэнгэр аялгуу"',
-          '"Хөсөгтөн" - язгуур урлагийн хамтлаг'
+          "Үлээвэр хөгжим",
+          "Гуулин үлээвэр",
+          "Нумт хөгжим",
+          "Товшуур хөгжим",
+          "Цохивор хөгжим", 
+          "Ардын тавал",
+          "Ардын хөгжмийн хамтлаг",
         ]
       },
-      internationalCooperation: {
-        title: 'Олон улсын хамтын ажиллагаа',
-        description: 'Монгол төрийн үндэсний хөгжмийн их найрлын уран бүтээлчид бид гадаад дотоодын олон томоохон тайзнаа үндэсний хөгжмөө суртачилан таниулан ирсэн билээ. Үүнээс дурдвал:',
-        venues: [
-          'ХБНГУ-ын Нюрнберг хотын Мейстерсингерхалле',
-          'Берлиний Филармони',
-          'Гөрлиц хотын Герхард Хауптман театр',
-          'БНХАУ Бээжин хотын Сувдан театр',
-          'Бүгд найрамдах Киргиз улсад "Мейкин Азиа" олон улсын фестиваль',
-          'Франц улсын НҮБ-ын тайзнаа',
-          'Солонгос, Энэтхэг, Тажикстан, Киргиз улсад ерөнхийлөгчийн айлчлал'
-        ]
-      },
-      majorWorks: {
-        title: 'Онцлох бүтээлүүд',
-        description: 'Мөн Тэргүүн зэргийн Чингис хаан одонт ТШ Хөдөлмөрийн баатар УГЗ Б. Шаравын "Сэрсэн тал", ТхШ АЖ Хөдөлмөрийн баатар Н. Жанцанноровын "Хүслийн төвөргөөн", мөн "Монголын сайхан орон", "Наадмын үдэш" гэх мэт дан хөгжмийн томоохон хэмжээний тоглолтоо толилуулж байжээ.'
-      }
     }
   };
 
@@ -271,43 +195,13 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-          
-          {/* Conductors Section */}
-          <div className="mb-20">
-            <div className="classic-card rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-gold mb-6 classic-heading">
-                {currentContent.conductors.title}
-              </h2>
-              <p className="text-gold-light/90 leading-relaxed classic-text text-lg mb-6">
-                {currentContent.conductors.description}
-              </p>
-              {'items' in currentContent.conductors && (
-                <div className="space-y-3">
-                  {currentContent.conductors.items.map((item: string, index: number) => (
-                    <div
-                      key={index}
-                      className="group relative bg-gradient-to-r from-gray-900/50 to-black/50 rounded-lg p-4 hover:from-gray-900/70 hover:to-black/70 transition-all duration-300"
-                    >
-                      <div className="flex items-center">
-                        <div className="w-3 h-3 bg-gold rounded-full mr-4 shrink-0"></div>
-                        <span className="text-gold-light/90 classic-text">{item}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-
+        
           {/* Legacy Section */}
           <div className="mb-20">
             <div className="classic-card rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-gold mb-6 classic-heading">
                 {currentContent.legacy.title}
               </h2>
-              <p className="text-gold-light/90 leading-relaxed classic-text text-lg mb-6">
-                {currentContent.legacy.description}
-              </p>
               {'items' in currentContent.legacy && (
                 <div className="space-y-3">
                   {currentContent.legacy.items.map((item: string, index: number) => (
@@ -322,52 +216,6 @@ export default function AboutPage() {
                     </div>
                   ))}
                 </div>
-              )}
-            </div>
-          </div>
-
-          {/* International Cooperation */}
-          <div className="mb-20">
-            <div className="max-w-4xl mx-auto px-4">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-gold mb-4 classic-heading text-center">
-                {currentContent.internationalCooperation.title}
-              </h2>
-              <p className="text-gold-light/90 leading-relaxed classic-text text-lg mb-6">
-                {currentContent.internationalCooperation.description}
-              </p>
-              <div className="space-y-2">
-                {currentContent.internationalCooperation.venues.map((venue: string, index: number) => (
-                  <div key={index} className="flex items-start">
-                    <div className="w-2 h-2 bg-gold rounded-full mr-3 mt-2 shrink-0"></div>
-                    <span className="text-gold-light/90 classic-text text-base">{venue}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Major Works */}
-          <div className="mb-20">
-            <div className="max-w-4xl mx-auto px-4">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-gold mb-6 classic-heading text-center">
-                {currentContent.majorWorks.title}
-              </h2>
-              <p className="text-gold-light/90 leading-relaxed classic-text text-lg mb-6">
-                {language === 'en' ? currentContent.majorWorks.description : ''}
-              </p>
-              {language === 'en' && 'works' in currentContent.majorWorks ? (
-                <div className="space-y-2">
-                  {currentContent.majorWorks.works.map((work: string, index: number) => (
-                    <div key={index} className="flex items-start">
-                      <div className="w-2 h-2 bg-gold rounded-full mr-3 mt-2 shrink-0"></div>
-                      <span className="text-gold-light/90 classic-text text-base italic">{work}</span>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-gold-light/90 leading-relaxed classic-text text-lg">
-                  {currentContent.majorWorks.description}
-                </p>
               )}
             </div>
           </div>
