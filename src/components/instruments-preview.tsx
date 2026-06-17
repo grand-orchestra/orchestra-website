@@ -188,7 +188,7 @@ export default function InstrumentsPreview() {
                     type="button"
                     onClick={() => handleInstrumentClick(index)}
                     className={cn(
-                      'group relative w-full h-72 sm:h-80 lg:h-96 rounded-lg overflow-hidden bg-card shadow-2xl cursor-pointer transition-all duration-300',
+                      'group relative w-full h-72 sm:h-80 lg:h-96 rounded-lg overflow-hidden bg-card bg-black shadow-2xl cursor-pointer transition-all duration-300',
                       captionIndex === index
                         ? 'shadow-[0_0_25px_rgba(212,175,55,0.4)]'
                         : 'hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]'
