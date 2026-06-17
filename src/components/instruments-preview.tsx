@@ -130,7 +130,7 @@ export default function InstrumentsPreview() {
         </div>
 
         {/* Carousel */}
-        <div className="relative mb-16">
+        <div className="relative mb-16 mx-4 sm:mx-0">
           <div className="relative overflow-hidden rounded-lg">
             <div
               className="flex transition-transform duration-700 ease-in-out"
@@ -139,7 +139,7 @@ export default function InstrumentsPreview() {
               {instruments.map((instrument, index) => (
                 <div
                   key={instrument.id}
-                  className="flex-shrink-0 px-2"
+                  className="flex-shrink-0 px-2 sm:px-3"
                   style={{ width: `${100 / visibleCount}%` }}
                 >
                   <button
@@ -148,7 +148,7 @@ export default function InstrumentsPreview() {
                     className={cn(
                       'group relative w-full h-72 sm:h-80 lg:h-96 rounded-lg overflow-hidden bg-card shadow-2xl cursor-pointer transition-all duration-300',
                       captionIndex === index
-                        ? 'ring-2 ring-gold shadow-[0_0_25px_rgba(212,175,55,0.4)]'
+                        ? 'shadow-[0_0_25px_rgba(212,175,55,0.4)]'
                         : 'hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]'
                     )}
                     aria-label={
@@ -187,27 +187,28 @@ export default function InstrumentsPreview() {
               ))}
             </div>
 
-            {activeIndex > 0 && (
-              <button
-                type="button"
-                onClick={goToPrevious}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/60 hover:bg-black/80 text-gold transition-colors -translate-x-1/2 sm:translate-x-0 sm:left-2"
-                aria-label="Previous instrument"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-            )}
-            {activeIndex < maxIndex && (
-              <button
-                type="button"
-                onClick={goToNext}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/60 hover:bg-black/80 text-gold transition-colors translate-x-1/2 sm:translate-x-0 sm:right-2"
-                aria-label="Next instrument"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-            )}
           </div>
+
+          {activeIndex > 0 && (
+            <button
+              type="button"
+              onClick={goToPrevious}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/60 hover:bg-black/80 text-gold transition-colors sm:left-2"
+              aria-label="Previous instrument"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+          )}
+          {activeIndex < maxIndex && (
+            <button
+              type="button"
+              onClick={goToNext}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/60 hover:bg-black/80 text-gold transition-colors sm:right-2"
+              aria-label="Next instrument"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          )}
 
           {/* Page dots */}
           {maxIndex > 0 && (
