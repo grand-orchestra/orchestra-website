@@ -63,8 +63,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-semibold mb-6 text-gold classic-heading">{t('footer.contact')}</h3>
             <ul className="space-y-4">
-              <li className="flex items-center text-gold-light/80">
-                <MapPin className="w-6 h-6 mr-4 text-gold" />
+            <li className="flex items-center text-gold-light/80" onClick={() => window.open("https://maps.app.goo.gl/uhpqEUjpJNFUSzP7A")}>                <MapPin className="w-6 h-6 mr-4 text-gold" />
                 <span className="classic-text">{t('footer.address')}</span>
               </li>
               <li className="flex items-center text-gold-light/80">
@@ -92,19 +91,19 @@ export default function Footer() {
               <a
                 href="#"
                 className="text-gold-light/80 hover:text-gold transition-colors duration-300 p-3 border border-gold/30 hover:border-gold rounded-lg"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-6 h-6" />
-              </a>
-              <a
-                href="#"
-                className="text-gold-light/80 hover:text-gold transition-colors duration-300 p-3 border border-gold/30 hover:border-gold rounded-lg"
                 aria-label="Instagram"
               >
                 <Instagram className="w-6 h-6" />
               </a>
               <a
-                href="#"
+                href="https://youtube.com/@mongolian1pipe?si=ioOjq5n6pj5T5cq7"
+                className="text-gold-light/80 hover:text-gold transition-colors duration-300 p-3 border border-gold/30 hover:border-gold rounded-lg"
+                aria-label="Twitter"
+              >
+                <Youtube className="w-6 h-6" />
+              </a>
+              <a
+                href="https://youtube.com/@mongoliangrandtheatreofnat8450?si=H7er0kDKojCDLr-V"
                 className="text-gold-light/80 hover:text-gold transition-colors duration-300 p-3 border border-gold/30 hover:border-gold rounded-lg"
                 aria-label="YouTube"
               >
@@ -117,7 +116,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gold/20 mt-12 pt-8 text-center">
           <p className="text-gold-light/60 classic-text">
-            {t('footer.copyright')}
+          <span className="text-gold-light/60 classic-text">© {new Date().getFullYear()}</span>{t('footer.copyright')}
           </p>
         </div>
       </div>
