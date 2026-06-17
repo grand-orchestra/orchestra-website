@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/language-context';
 import { teamImages } from '@/data/team-images';
 import { cn } from '@/lib/utils';
