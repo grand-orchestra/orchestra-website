@@ -55,6 +55,7 @@ function InstrumentImage({ images, alt }: { images: string[]; alt: string }) {
 
 const AUTO_PLAY_INTERVAL = 4000;
 const PAUSE_AFTER_INTERACTION = 8000;
+const SWIPE_THRESHOLD = 50;
 
 export default function InstrumentsPreview() {
   const { t, language } = useLanguage();
@@ -65,6 +66,8 @@ export default function InstrumentsPreview() {
   const [captionIndex, setCaptionIndex] = useState<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
   const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const swipeStartXRef = useRef<number | null>(null);
+  const didSwipeRef = useRef(false);
 
   useEffect(() => {
     setActiveIndex((prev) => Math.min(prev, maxIndex));
@@ -95,11 +98,40 @@ export default function InstrumentsPreview() {
   );
 
   const handleInstrumentClick = (index: number) => {
+    if (didSwipeRef.current) return;
     setCaptionIndex((prev) => (prev === index ? null : index));
   };
 
   const goToPrevious = () => goToSlide(activeIndex - 1);
   const goToNext = () => goToSlide(activeIndex + 1);
+
+  const handleSwipeStart = useCallback((clientX: number) => {
+    swipeStartXRef.current = clientX;
+    didSwipeRef.current = false;
+  }, []);
+
+  const handleSwipeEnd = useCallback(
+    (clientX: number) => {
+      const startX = swipeStartXRef.current;
+      swipeStartXRef.current = null;
+      if (startX === null) return;
+
+      const deltaX = clientX - startX;
+      if (Math.abs(deltaX) < SWIPE_THRESHOLD) return;
+
+      didSwipeRef.current = true;
+      if (deltaX > 0 && activeIndex > 0) {
+        goToSlide(activeIndex - 1);
+      } else if (deltaX < 0 && activeIndex < maxIndex) {
+        goToSlide(activeIndex + 1);
+      }
+
+      window.setTimeout(() => {
+        didSwipeRef.current = false;
+      }, 300);
+    },
+    [activeIndex, maxIndex, goToSlide]
+  );
 
   useEffect(() => {
     if (isPaused || captionIndex !== null || maxIndex === 0) return;
@@ -131,7 +163,17 @@ export default function InstrumentsPreview() {
 
         {/* Carousel */}
         <div className="relative mb-16 mx-4 sm:mx-0">
-          <div className="relative overflow-hidden rounded-lg">
+          <div
+            className="relative overflow-hidden rounded-lg touch-pan-y select-none"
+            onPointerDown={(e) => {
+              if (e.pointerType === 'mouse' && e.button !== 0) return;
+              handleSwipeStart(e.clientX);
+            }}
+            onPointerUp={(e) => handleSwipeEnd(e.clientX)}
+            onPointerCancel={() => {
+              swipeStartXRef.current = null;
+            }}
+          >
             <div
               className="flex transition-transform duration-700 ease-in-out"
               style={{ transform: `translateX(-${slideOffset}%)` }}
