@@ -53,7 +53,7 @@ function InstrumentImage({ images, alt }: { images: string[]; alt: string }) {
   );
 }
 
-const AUTO_PLAY_INTERVAL = 5000;
+const AUTO_PLAY_INTERVAL = 4000;
 const PAUSE_AFTER_INTERACTION = 8000;
 
 export default function InstrumentsPreview() {
